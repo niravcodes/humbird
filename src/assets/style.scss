@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Coiny|Montserrat:300");
+
+@import "var";
+@import "footer";
+@mixin gradientbg_accent {
+  background: $accentcolor; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    $accentcolor2,
+    $accentcolor
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    $accentcolor2,
+    $accentcolor
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@mixin shadowdrop_accent {
+  -webkit-box-shadow: 3px 4px 23px -1px rgba($accentcolor, 0.83);
+  -moz-box-shadow: 3px 4px 23px -1px rgba($accentcolor, 0.83);
+  box-shadow: 3px 4px 23px -1px rgba($accentcolor, 0.83);
+}
+
+@keyframes yourAnimation {
+  0% {
+    border: 2px solid $errorcolor;
+  }
+  70% {
+    border: 2px solid $accentcolor_border;
+  }
+  100% {
+    border: 2px solid $errorcolor;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-image: url("full-bloom.png");
+  background-repeat: repeat;
+}
+
+.container {
+  width: $appWidth;
+  min-height: $appHeight;
+  max-height: 3 * $appHeight;
+  padding: 18px 42px;
+  border-radius: 30px;
+  border: 0;
+  color: $textcolor;
+
+  @include gradientbg_accent;
+  @include shadowdrop_accent;
+
+  & > .title {
+    font-size: $title;
+    font-family: $fontTitle;
+
+    &.-checkpoint {
+      margin-bottom: 5px;
+    }
+  }
+  & > .text {
+    font-size: $text;
+    font-family: $fontText;
+  }
+
+  .domain {
+    display: block;
+    font-size: $focus;
+    padding: 4px 0 8px 0;
+
+    & a {
+      color: $textcolor;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.inputbox {
+  font-family: $fontText;
+  font-size: $label;
+
+  & > .info {
+    font-size: $info;
+    padding: 5px 20px 0px 20px;
+    width: 100%;
+  }
+
+  & > .error {
+    color: $errorcolor;
+    text-align: center;
+    margin: -10px 0 10px 0;
+  }
+
+  &.-checkpoint {
+    margin: 10px 0;
+    & > .input {
+      margin: 4px 0 14px 0;
+    }
+    & > .-button {
+      margin: 20px 0 20px 0;
+    }
+  }
+}
+
+.input {
+  display: block;
+  padding: 12px 25px;
+  width: 100%;
+  border: solid 2px darken($accentcolor, 8%);
+  border-radius: 10px;
+
+  font-size: $input;
+  font-family: $fontText;
+  color: $accentcolor;
+  outline: none !important;
+
+  &.-error {
+    animation: yourAnimation 1.3s 4 0s linear;
+    border: 2px solid $errorcolor;
+  }
+
+  &.-button {
+    background: $accentcolor;
+    color: $textcolor;
+    border-bottom: solid 10px $accentcolor_border;
+    padding: 12px 0;
+
+    &:active {
+      transform: translateY(10px);
+      border-bottom: solid 2px $accentcolor_border;
+      margin-bottom: 28px !important;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 100vh;
+}
