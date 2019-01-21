@@ -40,13 +40,16 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 
   background-image: url("full-bloom.png");
   background-repeat: repeat;
+}
+.body{
+  display: flex;
+ justify-content: center;
+  align-items: center;
+  height: calc(100vh - 65px);
+  min-height: 550px;
 }
 
 .container {

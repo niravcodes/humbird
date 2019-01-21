@@ -131,7 +131,7 @@ export default {
       function() {
         this.fetchchat();
       }.bind(this),
-      1000
+      100
     );
   },
   beforeDestroy() {
