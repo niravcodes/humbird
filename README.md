@@ -1,6 +1,6 @@
-# test-project
-
-> A Vue.js project
+# Humbird
+> A Vue.js chatting application frontend. Written simply to get a feel for the Vue api and tools.  
+https://codesandbox.io/s/github/niravcodes/humbird
 
 ## Build Setup
 
